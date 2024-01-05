@@ -1,0 +1,339 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+:root {
+  --dot-color: #2b282a;
+  --white-color: #fff;
+  --faint-white-color: #c1c1c1;
+  --black-color: #000;
+  --green-color: #43a36e;
+  --green-color: #0add08;
+  --red-color: #ff000d;
+  --button-background: #2f2f34;
+  --button-hover: #1b1c1e;
+  --grey-color: #7b7a87;
+  --grey-color-transparent: #7b7a8752;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--black-color);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--white-color);
+  width: 0;
+  border-radius: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: var(--white-color);
+  font-family: "Lato", sans-serif;
+}
+.background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #0c0b0c;
+  overflow: hidden;
+}
+.dot {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background-color: var(--dot-color);
+}
+
+.container {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 80px;
+  position: relative;
+  z-index: 1;
+  border-radius: 5px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-out, transform 1s ease-out;
+}
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*----------------------------------Common CSS----------------------------------*/
+.container .show .header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.padding {
+  padding: 15px 0;
+}
+.div-head {
+  font-size: 28px;
+  font-weight: 700;
+}
+.wrapper {
+  padding-bottom: 40px;
+  border-bottom: 3px solid var(--dot-color);
+}
+/* ----------------------------------header---------------------------------- */
+.header #status {
+  display: flex;
+  align-items: center;
+}
+.header #symbol {
+  height: 12px;
+  width: 12px;
+  background-color: var(--green-color);
+  border-radius: 100%;
+}
+.header #description {
+  padding-left: 5px;
+}
+.header #name {
+  font-size: 45px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.header #name #fsdev {
+  background-image: linear-gradient(to right, #db2777, #c084fc, #db2777);
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 200%;
+  color: transparent;
+  animation: colorChange 7s ease-in infinite;
+}
+@keyframes colorChange {
+  0% {
+    background-position: 0%;
+  }
+  50% {
+    background-position: 200%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+.header #contact-links a {
+  margin-right: 15px;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.header #contact-links button {
+  font-size: 20px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 30px;
+  background-color: var(--dot-color);
+  cursor: pointer;
+  transition-property: background-color, color, transform;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.header #contact-links button:hover {
+  background-color: var(--faint-white-color);
+  color: var(--dot-color);
+  transform: scale(1.02);
+}
+.header #introduction {
+  line-height: 22px;
+  letter-spacing: 1px;
+}
+@media (max-width: 550px) {
+  .container {
+    width: 90%;
+    margin: 50px auto;
+  }
+  .header #name {
+    font-size: 35px;
+  }
+}
+@media (max-width: 385px) {
+  .header #name {
+    font-size: 28px;
+  }
+  .header #contact-links button {
+    font-size: 15px;
+  }
+}
+@media (max-width: 385px) {
+  .header #contact-links a {
+    margin: 10px;
+    margin-left: 0;
+  }
+}
+
+/* ----------------------------------tech wrapper---------------------------------- */
+/* ----------------------------------uses wrapper---------------------------------- */
+.tech-wrapper #tech,
+.uses-wrapper #uses {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.tech-wrapper button,
+.uses-wrapper button {
+  border-radius: 5px;
+  background-color: var(--button-background);
+  padding: 10px;
+  text-align: center;
+  border: 0;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+.tech-wrapper button:hover,
+.uses-wrapper button:hover {
+  background-color: var(--button-hover);
+}
+.tech-wrapper button img,
+.uses-wrapper button img {
+  width: 60px;
+  margin: 10px;
+}
+.tech-wrapper button .img-desc,
+.uses-wrapper button .img-desc {
+  font-size: 18px;
+}
+@media (max-width: 425px) {
+  .tech-wrapper #tech,
+  .uses-wrapper #uses {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ----------------------------------project---------------------------------- */
+.project-wrapper #project {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.project-wrapper .project-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--button-background);
+  padding: 15px 30px;
+  border: 0;
+  position: relative;
+  border-radius: 5px;
+}
+.project-wrapper a {
+  text-decoration: none;
+}
+.project-wrapper .proj-name {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 3px 0;
+  border-bottom: solid 1px transparent;
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.project-wrapper .proj-name:hover {
+  border-bottom: solid 1px var(--white-color);
+}
+.project-wrapper .arrow-link {
+  position: absolute;
+  line-height: 15px;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  transition: all 3s ease-in-out;
+  display: none;
+}
+.project-wrapper .proj-desc {
+  overflow: auto;
+  padding: 6px 0;
+  color: var(--grey-color);
+  flex: 1;
+}
+.project-wrapper .proj-desc::-webkit-scrollbar {
+  width: 1px;
+}
+.project-wrapper .tech-used {
+  padding: 6px 0;
+}
+@media (max-width: 450px) {
+  .project-wrapper .project-item {
+    padding: 15px;
+  }
+  .project-wrapper #project {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* ----------------------------------certificates---------------------------------- */
+.certificates-wrapper #certificates > div {
+  background-color: var(--button-background);
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  height: 45px;
+  overflow: hidden;
+}
+.certificates-wrapper .certi-name {
+  font-weight: 700;
+  margin-bottom: 5px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.certificates-wrapper .src-img {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.certificates-wrapper button {
+  height: 20px;
+  width: 20px;
+  border: 0;
+  background-color: var(--black-color);
+  border-radius: 100%;
+}
+.certificates-wrapper button:hover {
+  background-color: #606060;
+}
+.certificates-wrapper button > img {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 75%;
+}
+.certificates-wrapper .certificate-image {
+  width: 100%;
+}
+
+/* ----------------------------------footer---------------------------------- */
+.footer {
+  border: 0;
+}
+.footer a {
+  text-decoration: none;
+}
+.footer #resume {
+  font-size: 18px;
+  font-weight: 800;
+  padding: 8px 20px;
+  border: 0;
+  border-radius: 30px;
+  background-color: var(--dot-color);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 10px 0;
+}
+.footer #resume:hover {
+  background-color: var(--white-color);
+  color: var(--button-background);
+}
+
+@media (max-width: 385px) {
+  .header #resume {
+    font-size: 15px;
+  }
+}
